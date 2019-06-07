@@ -1,12 +1,17 @@
-import React from "react";
+import React, { Component } from "react";
+import { Switch, Route } from "react-router-dom";
+import DefaultProps from "./DefaultProps";
 import "./App.css";
+import DogList from "./DogList";
 
-function App() {
-  return (
-    <div className="App">
-      <h1 className="display-1">Dog App!</h1>
-    </div>
-  );
+class App extends Component {
+  static defaultProps = DefaultProps;
+
+  render() {
+    return (
+      <Route path="/dogs" render={() => <DogList dogs={this.props.dogs} />} />
+    );
+  }
 }
 
 export default App;
